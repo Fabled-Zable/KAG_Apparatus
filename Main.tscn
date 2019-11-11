@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Button.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 479.0
+margin_bottom = 714.0
+
+[node name="Control" type="Control" parent="Panel"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Control"]
+margin_right = 182.0
+margin_bottom = 40.0
+
+[node name="Button" type="Button" parent="Panel/Control/HBoxContainer"]
+margin_right = 41.0
+margin_bottom = 40.0
+text = "Start"
+script = ExtResource( 1 )
+
+[node name="OptionButton" type="OptionButton" parent="Panel/Control/HBoxContainer"]
+margin_left = 45.0
+margin_right = 182.0
+margin_bottom = 40.0
+text = "Launch Normal"
+align = 1
+items = [ "Launch Normal", null, false, 0, null, "Launch Dedicated Server", null, false, 1, null, "Launch Local Host", null, false, 2, null ]
+selected = 0
+[connection signal="button_up" from="Panel/Control/HBoxContainer/Button" to="Panel/Control/HBoxContainer/Button" method="_on_Button_button_up"]
